@@ -1,0 +1,10 @@
+{
+  "name": "dingpa",
+  "version": "0.1.0",
+  "main": "lib",
+  "module": "es",
+  "types": "es/index.d.ts",
+  "dependencies": {
+    "@dingpa/shared": "^0.1.0"
+  }
+}

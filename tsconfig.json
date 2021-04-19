@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "strictNullChecks": false,
+    "strict": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "paths": {
+      "@dingpa/shared": ["./packages/shared/src/index.ts"],
+      "dingpa": ["./packages/dingpa/src/index.ts"],
+      "@dingpa/app": ["./packages/app/src/index.ts"],
+      "@dingpa/react": ["./packages/react/src/index.ts"]
+    }
+  }
+}
