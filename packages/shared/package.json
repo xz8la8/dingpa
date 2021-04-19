@@ -1,12 +1,13 @@
 {
   "name": "@dingpa/shared",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "main": "lib",
   "module": "es",
   "types": "es/index.d.ts",
   "dependencies": {
     "lodash": "^4.17.21",
-    "path-to-regexp": "^1.7.0"
+    "path-to-regexp": "^1.7.0",
+    "url-parse": "^1.5.1"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.168"
