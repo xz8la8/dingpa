@@ -9,7 +9,7 @@
     "bootstrap": "lerna bootstrap",
     "clean": "lerna clean -y",
     "build": "father-build",
-    "publish": "lerna publish -m \"chore: publish\""
+    "publish": "npm run build && lerna publish -m \"chore: publish\""
   },
   "private": true,
   "devDependencies": {
