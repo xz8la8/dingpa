@@ -1,6 +1,6 @@
 {
   "name": "@dingpa/shared",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "main": "lib",
   "module": "es",
   "types": "es/index.d.ts",
