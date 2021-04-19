@@ -1,21 +1,20 @@
-import * as pathToRegexp from 'path-to-regexp';
-import { ParseOptions, TokensToRegexpOptions, Path } from 'path-to-regexp';
+import { default as pathToRegexp, ParseOptions, Key } from 'path-to-regexp';
 import { MatchRouteOptions } from '../interfaces';
 
 type RegexpResult = {
   regexp: RegExp;
-  keys: string[];
+  keys: Key[];
 };
 
 let regexpCache: Record<string, any> = Object.create(null);
 
-const compilePath = (pathname: string, options: TokensToRegexpOptions & ParseOptions): RegexpResult => {
+const compilePath = (pathname: string, options: pathToRegexp.RegExpOptions & ParseOptions): RegexpResult => {
   const cacheKey = `${pathname}${options.strict}${options.sensitive}`;
   const cache = regexpCache[cacheKey] || (regexpCache[cacheKey] = {});
 
   if(cache[pathname]) return cache[pathname];
 
-  const keys: string[] = [];
+  const keys: Key[] = [];
   const regexp = pathToRegexp(pathname, keys, options);
 
   return {
@@ -58,7 +57,7 @@ export const matchPath = (pathname: string, options: MatchRouteOptions) => {
     url: path === '/' && url === '' ? '/' : url,
     isExact,
     params: keys.reduce((memo, key, index) => {
-      memo[key] = values[index];
+      memo[key.name] = values[index];
       return memo;
     }, {}),
   }

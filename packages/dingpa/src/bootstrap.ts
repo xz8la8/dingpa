@@ -17,11 +17,11 @@ export function routeMicroApp(url: string) {
 
   getMicroApps().forEach((microApp) => {
     const isActiveApp = microApp.activeRule(url);
-    if (isActiveApp && !mountedApps.includes(microApp)) {
+    if (isActiveApp && !mountedMicroApps.includes(microApp)) {
       mountApps.push(microApp);
     }
 
-    if (!isActiveApp && !unmountedApps.includes(microApp)) {
+    if (!isActiveApp && !unmountedMicroApps.includes(microApp)) {
       unmountApps.push(microApp);
     }
   });

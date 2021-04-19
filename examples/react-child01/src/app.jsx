@@ -1,9 +1,8 @@
 import ReactDOM from 'react-dom';
-import { mount, unmount } from '@dingpa/app';
-console.log('mount: ', mount);
+import { mount, unmount, isInDingpa } from '@dingpa/app';
 
 export function modifyClientRenderOpts(args) {
-  if (process.env.NODE_ENV === "development") {
+  if (!isInDingpa()) {
     return args;
   }
   return {
@@ -13,7 +12,7 @@ export function modifyClientRenderOpts(args) {
 }
 
 export function rootContainer(container) {
-  if (process.env.NODE_ENV === "development") {
+  if (!isInDingpa()) {
     return container;
   }
 

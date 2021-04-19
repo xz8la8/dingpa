@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "start": "node ./server.js",
+    "dev": "umi dev",
+    "build": "umi build"
+  },
+  "dependencies": {
+    "@dingpa/app": "^0.1.2",
+    "umi": "2.13.17"
+  }
+}

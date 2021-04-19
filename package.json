@@ -27,6 +27,7 @@
     "mode": "tyarn"
   },
   "dependencies": {
-    "@dingpa/app": "^0.1.1"
+    "@dingpa/app": "^0.1.2",
+    "umi": "2.13.17"
   }
 }
