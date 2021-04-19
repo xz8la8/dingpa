@@ -1,10 +1,11 @@
 {
   "name": "@dingpa/app",
-  "version": "0.1.1",
+  "version": "0.1.0",
   "main": "lib",
   "module": "es",
   "types": "es/index.d.ts",
   "dependencies": {
     "@dingpa/shared": "^0.1.1"
-  }
+  },
+  "gitHead": "c31e66b20118eb18fc31aeb51a623ee6e73dc943"
 }
