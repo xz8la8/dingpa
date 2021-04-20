@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build"
+  },
   "dependencies": {
     "dingpa": "^0.1.1"
+  },
+  "devDependencies": {
+    "umi": "^3.4.10"
   }
 }

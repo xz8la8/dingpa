@@ -1,15 +1,15 @@
-import { getStore } from "@dingpa/shared";
+import { getStore } from '@dingpa/shared';
 
-export function callMount(container, props) {
-  const mountCallback = getStore('appMount');
-  if(mountCallback) {
+export function callMount(container: HTMLElement, props: Record<string, any>) {
+  const mountCallback: typeof callMount = getStore('appMount');
+  if (mountCallback) {
     mountCallback(container, props);
   }
 }
 
-export function callUnmount(container) {
-  const unmountCallback = getStore('appUnmount');
-  if(unmountCallback) {
+export function callUnmount(container: HTMLElement) {
+  const unmountCallback: typeof callUnmount = getStore('appUnmount');
+  if (unmountCallback) {
     unmountCallback(container);
   }
 }

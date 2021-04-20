@@ -1,6 +1,12 @@
 import { warning, isFunction, matchPath } from '@dingpa/shared';
-import { MicroAppEnty } from './interfaces';
+import { MicroAppEnty, Sandbox } from './interfaces';
 import { createSandbox } from './sandbox';
+
+export type MicroApp = {
+  sandbox: Sandbox;
+  activeRule: (url: string) => boolean;
+  unloadAssets: () => void;
+} & MicroAppEnty;
 
 let microApps: any[] = [];
 
@@ -18,13 +24,13 @@ function registerMicroApp(appEntry: MicroAppEnty) {
     return;
   }
 
-  const { activePath, exact, sensitive, strict } = appEntry;
+  const { activePath } = appEntry;
 
   let activeRule = registerMicroApp
     ? isFunction(activePath)
       ? activePath
       : (url: string) => {
-          return matchPath(url, { path: activePath, exact, sensitive, strict });
+          return matchPath(url, { path: activePath });
         }
     : () => true;
 

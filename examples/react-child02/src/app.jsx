@@ -3,7 +3,7 @@ import { mount, unmount, isInDingpa } from '@dingpa/app';
 import Router from '@@/router';
 
 export function render(oldRender) {
-  console.log('isInDingpa(): ', isInDingpa());
+  console.log('child02 isInDingpa: ', isInDingpa());
   if (!isInDingpa()) {
     return oldRender();
   }

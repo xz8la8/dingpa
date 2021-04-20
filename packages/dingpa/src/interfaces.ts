@@ -1,9 +1,3 @@
-declare global {
-  interface Window {
-    __POWERED_BY_DINGPA__?: boolean;
-  }
-}
-
 // ====== Host App Micro App Entry Register ========
 export type MicroAppEnty = {
   /** 应用名称 */
@@ -11,6 +5,7 @@ export type MicroAppEnty = {
   activePath: string;
   scripts?: string[];
   styles?: string[];
+  props?: Record<string, any>;
 };
 
 

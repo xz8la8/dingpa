@@ -1,27 +1,39 @@
 import { getContainer, getStore, warning } from '@dingpa/shared';
 import { callMount, callUnmount } from './appLifeCycle';
 import loadAssets from './loadAssets';
-import { getMicroApps } from './registerMicroApps';
+import { getMicroApps, MicroApp } from './registerMicroApps';
 
 let lastUrl: string = null;
-let mountedMicroApps = [];
-let unmountedMicroApps = [];
+let lastMached: boolean = false;
+
+let mountedMicroApps: MicroApp[] = [];
+let unmountedMicroApps: MicroApp[] = [];
+
+let canRouteMicroApp = false;
 
 export function routeMicroApp(url: string) {
+  if (!canRouteMicroApp) {
+    return false;
+  }
   if (lastUrl === url) {
-    return;
+    return lastMached;
   }
 
-  const mountApps = [];
-  const unmountApps = [];
+  const mountApps: MicroApp[] = [];
+  const unmountApps: MicroApp[] = [];
+
+  let matched: boolean = false;
 
   getMicroApps().forEach((microApp) => {
     const isActiveApp = microApp.activeRule(url);
+    if (isActiveApp) {
+      matched = true;
+    }
     if (isActiveApp && !mountedMicroApps.includes(microApp)) {
       mountApps.push(microApp);
     }
 
-    if (!isActiveApp && !unmountedMicroApps.includes(microApp)) {
+    if (!isActiveApp && mountedMicroApps.includes(microApp)) {
       unmountApps.push(microApp);
     }
   });
@@ -48,18 +60,21 @@ export function routeMicroApp(url: string) {
   );
 
   lastUrl = url;
+  lastMached = matched;
+
+  return matched;
 }
 
-export async function unmountMicroApp(microApp) {
+export async function unmountMicroApp(microApp: MicroApp) {
   const { sandbox, unloadAssets } = microApp;
   const container = getContainer(getStore('container'));
 
   callUnmount(container);
-  unloadAssets();
+  unloadAssets && unloadAssets();
   sandbox.inactive();
 }
 
-export async function mountMicroApp(microApp) {
+export async function mountMicroApp(microApp: MicroApp) {
   const container = getContainer(getStore('container'));
 
   if (!container) {
@@ -69,8 +84,10 @@ export async function mountMicroApp(microApp) {
 
   const { scripts, styles, sandbox, props } = microApp;
 
+  manager.showLoading();
   sandbox.active();
   loadAssets(scripts, styles).then((unloadAssets) => {
+    manager.hideLoading();
     microApp.unloadAssets = unloadAssets;
     callMount(container, props);
   });
@@ -80,7 +97,7 @@ type BootstrapOptions = {
   showLoading: () => void;
   hideLoading: () => void;
   onError?: (e: Error) => void;
-  routeMicroApp?: (url: string) => void;
+  routeMicroApp?: (url: string) => boolean;
 };
 
 const manager: BootstrapOptions = {
@@ -89,12 +106,15 @@ const manager: BootstrapOptions = {
   routeMicroApp,
 };
 
-export function bootstrap(options: BootstrapOptions) {
+export function bootstrap(options: BootstrapOptions, routeOrNot: boolean = true) {
+  canRouteMicroApp = true;
   if (options) {
     Object.keys(options).forEach((key) => {
       manager[key] = options[key];
     });
   }
 
-  manager.routeMicroApp(location.href);
+  if (routeOrNot) {
+    manager.routeMicroApp(location.href);
+  }
 }

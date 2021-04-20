@@ -6,6 +6,10 @@
   },
   "dependencies": {
     "@dingpa/app": "^0.1.2",
+    "antd": "3",
     "umi": "2.13.17"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.3"
   }
 }

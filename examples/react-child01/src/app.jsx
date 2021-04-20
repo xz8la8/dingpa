@@ -15,7 +15,8 @@ export function rootContainer(container) {
   if (!isInDingpa()) {
     return container;
   }
-
+  
+  console.log('child01 isInDingpa: ', isInDingpa());
   mount((mounter) => {
     ReactDOM.render(container, mounter);
   })

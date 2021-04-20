@@ -14,6 +14,8 @@
   "private": true,
   "devDependencies": {
     "@types/jest": "^26.0.22",
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
     "@umijs/fabric": "^2.5.7",
     "@umijs/test": "^3.4.8",
     "connect-history-api-fallback": "^1.6.0",
@@ -21,13 +23,10 @@
     "eslint": "^7.23.0",
     "father-build": "^1.19.4",
     "lerna": "^4.0.0",
-    "live-server": "^1.2.1"
+    "live-server": "^1.2.1",
+    "typescript": "^4.2.4"
   },
   "tnpm": {
     "mode": "tyarn"
-  },
-  "dependencies": {
-    "@dingpa/app": "^0.1.2",
-    "umi": "2.13.17"
   }
 }

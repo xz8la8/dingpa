@@ -1,13 +1,11 @@
 export default {
   disableTypeCheck: true,
-  cjs: { type: "babel", lazy: true },
-  esm: {
-    type: "babel",
-    importLibToEs: true,
-  },
+  esm: 'babel',
+  cjs: 'babel',
+  runtimeHelpers: true,
   pkgs: [
-    'app',
+    'shared',
     'dingpa',
-    'shared'
+    'app',
   ],
 };

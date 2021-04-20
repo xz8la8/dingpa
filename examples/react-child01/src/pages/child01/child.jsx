@@ -1,16 +1,26 @@
-import React from "react";
+import React from 'react';
+import { Button } from 'antd';
 
 export default () => {
   return (
     <div>
       <h4>child01-child</h4>
-      <button
+      <Button
+        danger
         onClick={() => {
-          window.__history.push("/child02/child");
+          window.getHistory().push('/child02/child');
         }}
       >
         跳到child02-child
-      </button>
+      </Button>
+      <Button
+        type="link"
+        onClick={() => {
+          window.getHistory().push('/home');
+        }}
+      >
+        back to home
+      </Button>
     </div>
   );
 };

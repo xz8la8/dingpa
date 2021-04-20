@@ -1,5 +1,14 @@
 {
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build"
+  },
   "dependencies": {
-    "@dingpa/app": "^0.1.1"
+    "@dingpa/app": "^0.1.1",
+    "antd": "4"
+  },
+  "devDependencies": {
+    "babel-plugin-import": "^1.13.3",
+    "umi": "^3.4.10"
   }
 }

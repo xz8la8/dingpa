@@ -1,5 +1,5 @@
 const getMessage = (message: string, scope?: string) => {
-  if (typeof console === 'undefined') return;
+  if (typeof console === 'undefined') return '';
 
   const prefix = scope ? `[${scope}]: ` : '';
   const log = `${prefix}${message}`;

@@ -1,8 +1,10 @@
-export default function loadAssets(scripts: string[], styles: string[]) {
+type UnloadAssets = () => void;
+
+export default function loadAssets(scripts: string[], styles: string[]): Promise<UnloadAssets> {
   const scriptsMounter = document.createDocumentFragment();
   const stylesMounter = document.createDocumentFragment();
-  const scriptElems = [];
-  const styleElems = [];
+  const scriptElems: HTMLElement[] = [];
+  const styleElems: HTMLElement[] = [];
 
   styles.forEach((style) => {
     const link = document.createElement('link');
@@ -16,7 +18,7 @@ export default function loadAssets(scripts: string[], styles: string[]) {
 
   let loadedCount = 0;
 
-  const promise = new Promise((resolve, reject) => {
+  const promise: Promise<UnloadAssets> = new Promise((resolve, reject) => {
     scripts.forEach((script) => {
       const scriptElem = document.createElement('script');
 
