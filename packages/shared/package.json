@@ -1,6 +1,6 @@
 {
   "name": "@dingpa/shared",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": "lib",
   "module": "es",
   "types": "es/index.d.ts",
@@ -14,5 +14,9 @@
     "@types/lodash": "^4.14.168",
     "@types/url-parse": "^1.4.3"
   },
+  "files": [
+    "es",
+    "lib"
+  ],
   "gitHead": "c31e66b20118eb18fc31aeb51a623ee6e73dc943"
 }
