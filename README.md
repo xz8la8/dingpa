@@ -4,7 +4,6 @@
 
 快速理解微前端原理。
 
-
 ## 🎉 Features
 
 - [x] 零依赖
@@ -14,6 +13,17 @@
 ## 🍙 Examples
 
 ![](./examples/dingpa.gif)
+
+## 🚀 Getting started
+
+[参考示例](./examples)
+
+## 📦 Installation
+
+```sh
+yarn add dingpa       // 主应用安装
+yarn add @dingpa/app  // 子应用安装
+```
 
 ## 🔗 Related
 
