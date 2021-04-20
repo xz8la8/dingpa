@@ -84,7 +84,7 @@ export default class LayoutPage extends React.Component {
     const { masterMatched, loading } = this.state;
     console.log('loading: ', loading);
     return (
-      <div>
+      <div style={{padding: '24px 24px 0'}}>
         <div style={{ background: '#eee', padding: 16 }}>Main App Layout</div>
         <div>{loading ? 'loading...' : null}</div>
         <div id="dingpa-container">{masterMatched ? this.props.children : null}</div>
