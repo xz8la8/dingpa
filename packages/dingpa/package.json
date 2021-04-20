@@ -1,6 +1,6 @@
 {
   "name": "dingpa",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "main": "lib",
   "module": "es",
   "types": "es/index.d.ts",
@@ -8,5 +8,9 @@
     "@babel/runtime": "^7.13.10",
     "@dingpa/shared": "^0.1.1"
   },
+  "files": [
+    "es",
+    "lib"
+  ],
   "gitHead": "c31e66b20118eb18fc31aeb51a623ee6e73dc943"
 }
