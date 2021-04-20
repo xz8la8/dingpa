@@ -4,7 +4,7 @@ import { Button } from 'antd';
 export default () => {
   return (
     <div>
-      <h4>child02-child</h4>
+      <h4>child02-child（umi2 + antd3）</h4>
       <Button
         type="primary"
         onClick={() => {
